@@ -10,11 +10,16 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   <style>
   body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
       color: #818181;
+  }
+  h1 {
+      margin: 0;
+      padding: 5px;
   }
   h2 {
       font-size: 24px;
@@ -33,11 +38,13 @@
   .jumbotron {
       background-color: rgb(102,102,102);
       color: #fff;
-      padding: 50px 25px;
+      margin-bottom: 0px;
+      padding-top: 20px;
+      padding-bottom: 20px; 
       font-family: Montserrat, sans-serif;
   }
   .container-fluid {
-      padding: 60px 50px;
+      padding: 20px 50px;
   }
   .bg-grey {
       background-color: #f6f6f6;
@@ -54,11 +61,6 @@
       padding: 0 0 15px 0;
       border: none;
       border-radius: 0;
-  }
-  .thumbnail img {
-      width: 100%;
-      height: 100%;
-      margin-bottom: 10px;
   }
   .carousel-control.right, .carousel-control.left {
       background-image: none;
@@ -123,11 +125,9 @@
       background-color: rgb(102,102,102);
       z-index: 9999;
       border: 0;
-      font-size: 12px !important;
-      line-height: 1.42857143 !important;
-      letter-spacing: 4px;
       border-radius: 0;
       font-family: Montserrat, sans-serif;
+      padding: 0;
   }
   .navbar img {
       width: 50%;
@@ -143,10 +143,6 @@
       border-color: transparent;
       color: #fff !important;
   }
-  footer .glyphicon {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #f4511e;
   }
   .slide {
       animation-name: slide;
@@ -190,14 +186,40 @@
         font-size: 150px;
     }
   }
+
+  /*#innerLeft {
+    text-align: right;
+  }*/
+
+  .btn-group {
+    padding: 5px;
+  }
+
+  #top {
+    text-align: center;
+  }
+
+  .line {
+    position: relative;
+    width: 10%; 
+    height: 1px; 
+    border-bottom: 1px solid black; 
+    text-align: center;
+    left: 45%; 
+  }
+
   </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div>
-    <div class="navbar-brand"><img src="Logo1-2.png"></div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid" style="padding: 0; padding-left: 10px">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="Logo1-2.png" style="width:50px">
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -235,7 +257,7 @@
   </div>
 </div>
 
-<!-- Container (Services Section) -/->
+ Container (Services Section) -/->
 <div id="services" class="container-fluid text-center">
   <h2>SERVICES</h2>
   <h4>What we offer</h4>
@@ -277,26 +299,44 @@
   </div>
 </div>
 
-<!-- Container (Portfolio Section) -->
+<!-- Container (Portfolio Section)-->
 <div id="portfolio" class="container-fluid text-center bg-grey">
-  <!--h2>Portfolio</h2><br>
-  <h4>What we have created</h4-->
   <div class="row text-center slideanim">
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="border-right: 1px solid black;"">
       <div class="thumbnail">
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Yes, we built Paris</p>
+        <div id="innerLeft"></div>
       </div>
     </div>
+
     <div class="col-sm-6">
       <div class="thumbnail">
-        <p><strong>San Francisco</strong></p>
-        <p>Yes, San Fran is ours</p>
+        <p>Time Signature</p>
+        <div class="btn-group dropup" id="top">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            4
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li><a>4</a></li>
+          </ul>
+        </div>
+        <div class="line"></div>
+        <div class="btn-group dropdown" id="bot">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            4
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a>4</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  
+
   <!--h2>What our customers say</h2>
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -/->
@@ -427,37 +467,8 @@
   </div>
 </div-->
 
-<!-- Add Google Maps -/->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-
-function initialize() {
-var mapProp = {
-  center:myCenter,
-  zoom:12,
-  scrollwheel:false,
-  draggable:false,
-  mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-var marker = new google.maps.Marker({
-  position:myCenter,
-  });
-
-marker.setMap(map);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-</script-->
-
-<footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
-  <p>Bootstrap Theme Made By <a href="http://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
+<footer class="text-center">
+  <p>Created using <a href="http://getbootstrap.com/" title="Bootstrap">Bootstrap</a> and <a href="#" title="p5.js">p5.js</a></p>
 </footer>
 
 <script>
@@ -483,6 +494,14 @@ $(document).ready(function(){
       });
     } // End if
   });
+
+  $(".dropdown-menu li a").click(function(){
+    $(this).parents(".dropup").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+    //$(this).parents(".dropup").find('.btn').val($(this).data('value'));
+    $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+    newSig = $(this).text();
+  });
+
   
   /*$(window).scroll(function() {
     $(".slideanim").each(function(){
@@ -496,6 +515,8 @@ $(document).ready(function(){
   });*/
 })
 </script>
+<script language="javascript" type="text/javascript" src="p5.js"></script>
+<script language="javascript" type="text/javascript" src="conduct.js"></script>
 
 </body>
 </html>
