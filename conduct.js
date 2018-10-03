@@ -72,9 +72,6 @@ function Baton() {
 			}
 		}
 
-		/*if(count!=0&&count%this.sig==0){
-			this.y = this.y-vely/2;
-		}*/
 		//INCREMENT
 		this.y-=vely;
 	}
@@ -82,8 +79,6 @@ function Baton() {
 	this.display = function(){
 		background('#f6f6f6');
 		displayLine(this.x, this.y);
-		//stroke(1);
-		//line(0, height-20, width, height-20);
 		noStroke();
 		fill('black');
 		if(count%this.sig==1)
