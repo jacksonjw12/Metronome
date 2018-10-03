@@ -1,3 +1,3 @@
 # Metronome
 
-Fancy animated metronome
+<i>Fancy</i> animated metronome
